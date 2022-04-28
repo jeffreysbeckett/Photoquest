@@ -16,10 +16,20 @@ This is an example of how a CI/CD pipeline can be set up for a project. The goal
     - PR Dev into main
     - Test on main
     - Merge in to main
-3. Linting your code - Make sure your code follows a defined style
+3. Linting your code - Make sure your code follows a defined style your teammates decide on
 4. Keep changes small - Some places have soft limits on how many lines can be affected in a PR.
 5. Be careful of dependencies - Some are easy to justify, like the net/http package in Go. However, it is becoming more and more difficult to track all modules that your application depends on. Especially in the Node.js world, there have been [attacks on some of the most popular packages](https://arstechnica.com/information-technology/2021/09/npm-package-with-3-million-weekly-downloads-had-a-severe-vulnerability/).
 6. Application teams are really starting to focus on pulling in team members from all different backgrounds. Front-End, Back-End, DevOps, Cloud Infrastructure, QA, Database.
+
+## Pipeline Example
+
+If you look on the actions tab in this project, there is an example of a CI/CD pipeline. This pipeline starts when ever a push is made to the repo and has the following steps
+
+1. It checks out the code pushed up
+2. It runs a build of that code
+3. It runs a series of tests on that code
+
+There is a second pipeline that only ever acts when a PR is made. Currently, it attempts (and fails) to run a linting and will fail if the test doesn't pass.
 
 ## DevOps
 
